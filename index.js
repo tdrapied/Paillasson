@@ -3,8 +3,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const moment = require('moment');
-require('moment/locale/fr');
+const moment = require('moment-timezone');
 
 const settings = require('./settings.json');
 
@@ -27,7 +26,7 @@ client.sendLog = (type, log) => {
     const channelId = client.guildlist.get('bot_manager').channels.get(type).id;
     client.channels.fetch(channelId)
     .then(channel => {
-        channel.send(`\`[${moment().format('HH:mm:ss')}]\` | ${log}`);
+        channel.send(`\`[${moment().tz("Europe/Paris").format('HH:mm:ss')}]\` | ${log}`);
     });
 
 }
