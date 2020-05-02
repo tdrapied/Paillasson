@@ -20,13 +20,13 @@ module.exports = client => {
 
     const guild = client.guildlist.get('zone_dev');
 
-    // Refresh message to channel 'regles'
-    const channel = guild.channels.get('regles');
-    client.channels.cache.get(channel.id).messages.fetch(channel.messageId).then(m => m.react('✅'));
-
-    // And channel 'choisis-ta-couleur'
-    const channel2 = guild.channels.get('choisis-ta-couleur');
-    client.channels.cache.get(channel2.id).messages.fetch(channel2.messageId).then(m => m.react('595226083800907786')); // id emote : ":0000ff:"
+    // Refresh all messages on json
+    guild.channels.forEach(channel => {
+        if (!channel.messages) return;
+        channel.messages.forEach(messageId => {
+            client.channels.cache.get(channel.id).messages.fetch(messageId).catch(console.error);
+        });
+    });
 
     // Get role Member
     client.roleMember = client.guilds.cache.get(guild.id).roles.cache.find(role => role.name === settings.role.member);
