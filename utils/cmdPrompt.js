@@ -1,5 +1,6 @@
 'use_strict';
 
+const settings = require('../settings.json');
 const emoteSearch = require('../utils/emoteSearch');
 
 /**
@@ -7,15 +8,15 @@ const emoteSearch = require('../utils/emoteSearch');
  */
 module.exports = message => {
 
-    const client = message.client;
-
     // If user has not role "verified"
-    if (!client.roleList.has('verified')) return;
-    if (!message.member.roles.cache.has(client.roleList.get('verified').id)) return;
+    const roleVerified = message.guild.roles.find(role => role.name === settings.role.verified);
+    if (!roleVerified || !message.member.roles.has(roleVerified.id)) return;
+
+    const client = message.client;
 
     try {
         // Execute code
-        const result = eval(message.content.substring(3));
+        const result = eval(message.content.substring(settings.prefix.command.length));
         message.channel.send(`:white_check_mark: | **${message.member.displayName}** : \`${result}\``).catch(console.error);
     }
     catch (err) {
