@@ -1,0 +1,12 @@
+{
+    "ownerid": "",
+    "prefix": {
+        "default": ".",
+        "command": ">_ "
+    },
+    "role": {
+        "member": "Member",
+        "verified": "🥇"
+    },
+    "token": ""
+}
