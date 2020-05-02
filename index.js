@@ -4,13 +4,13 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 const moment = require('moment');
+moment.locale('fr');
 
 const settings = require('./settings.json');
 
 client.commands = new Map();
 client.aliases = new Map();
 client.guildlist = new Map();
-client.roleList = new Map();
 
 // Loader
 require('./utils/commandLoader')(client);
