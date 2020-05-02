@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 const moment = require('moment');
+require('moment/locale/fr');
 
 const settings = require('./settings.json');
 
@@ -26,7 +27,7 @@ client.sendLog = (type, log) => {
     const channelId = client.guildlist.get('bot_manager').channels.get(type).id;
     client.channels.fetch(channelId)
     .then(channel => {
-        channel.send(`\`[${moment().format('HH:mm:ss').locale('fr')}]\` | ${log}`);
+        channel.send(`\`[${moment().format('HH:mm:ss')}]\` | ${log}`);
     });
 
 }
