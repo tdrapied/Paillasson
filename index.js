@@ -26,7 +26,7 @@ client.sendLog = (type, log) => {
     const channelId = client.guildlist.get('bot_manager').channels.get(type).id;
     client.channels.fetch(channelId)
     .then(channel => {
-        channel.send(`\`[${moment().format('HH:mm:ss')}]\` | ${log}`);
+        channel.send(`\`[${moment().format('HH:mm:ss').locale('fr')}]\` | ${log}`);
     });
 
 }
