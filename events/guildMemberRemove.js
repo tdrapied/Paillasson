@@ -8,8 +8,8 @@ const settings = require('../settings.json');
  */
 module.exports = (client, member) => {
 
-    if (!client.roleList.has('member')) return;
-    if (!member.roles.cache.has(client.roleList.get('member').id)) return;
+    if (!client.roleMember) return;
+    if (!member.roles.cache.has(client.roleMember.id)) return;
 
     const channelId = client.guildlist.get('zone_dev').channels.get('general').id;
     client.channels.fetch(channelId)
