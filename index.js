@@ -31,4 +31,4 @@ client.sendLog = (type, log) => {
 
 }
 
-client.login(settings.token);
+client.login(settings.token || process.env.TOKEN);
