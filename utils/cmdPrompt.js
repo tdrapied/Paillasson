@@ -9,8 +9,8 @@ const emoteSearch = require('../utils/emoteSearch');
 module.exports = message => {
 
     // If user has not role "verified"
-    const roleVerified = message.guild.roles.find(role => role.name === settings.role.verified);
-    if (!roleVerified || !message.member.roles.has(roleVerified.id)) return;
+    const roleVerified = message.guild.roles.cache.find(role => role.name === settings.role.verified);
+    if (!roleVerified || !message.member.roles.cache.has(roleVerified.id)) return;
 
     const client = message.client;
 
