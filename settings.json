@@ -6,7 +6,8 @@
     },
     "role": {
         "member": "Member",
-        "verified": "🥇"
+        "verified": "🥇",
+        "muted": "🔒"
     },
     "token": ""
 }
