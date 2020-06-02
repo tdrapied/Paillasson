@@ -26,6 +26,10 @@ module.exports = message => {
         }
         else return;
 
+        // test perms
+        const hasPerms = client.hasPerm(message, cmd.conf.permLevel);
+        if (!hasPerms) return;
+
         const args = message.content.split(' ').slice(1);
         cmd.run(client, message, args);
 
