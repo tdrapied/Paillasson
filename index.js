@@ -30,4 +30,24 @@ client.sendLog = (type, log) => {
 
 }
 
+/**
+ * @param {Message} message
+ * @param {int} num
+ * @return {boolean}
+ */
+client.hasPerm = (message, num) => {
+
+    switch (num) {
+
+        case 0:
+            return true;
+        case 1:
+            return typeof message.member.roles.cache.find(role => role.name === settings.role.verified) !== 'undefined';
+        default:
+            return true;
+
+    }
+
+}
+
 client.login(settings.token || process.env.TOKEN);
