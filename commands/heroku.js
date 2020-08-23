@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
 };
 
 exports.conf = {
-    name: 'code',
+    name: 'heroku',
     aliases: ['heroku-guide'],
     permLevel: 0
 };
