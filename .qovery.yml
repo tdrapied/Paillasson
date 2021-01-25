@@ -1,0 +1,11 @@
+---
+application:
+  name: "paillasson"
+  project: "Paillasson"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-paillasson"
+  routes:
+  - application_name: "paillasson"
+    paths:
+    - "/*"
