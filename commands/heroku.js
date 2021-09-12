@@ -8,7 +8,7 @@
 exports.run = (client, message, args) => {
 
     if (args.length > 0) return;
-    message.channel.send('https://ah-rem.github.io/heroku-guide/');
+    message.channel.send('https://topinambour.notion.site/Heroku-guide-5769c4a92405459ca09ffa3d983c1347');
 
 };
 
