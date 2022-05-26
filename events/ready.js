@@ -1,7 +1,6 @@
 'use_strict';
 
 const settings = require('../settings.json');
-const emoteSearch = require('../utils/emoteSearch');
 
 /**
  * @param {Client} client
@@ -9,9 +8,6 @@ const emoteSearch = require('../utils/emoteSearch');
 module.exports = client => {
 
     console.log(`${client.user.tag} is online and ready to serve ${client.guilds.cache.size} servers.`);
-
-    const log = `${emoteSearch('green_arrow')} bot gave reboot.`;
-    client.sendLog('boot', log);
 
     // Set interval to refresh bot presence
     client.setPresence = () => require('../utils/setPresence')(client);

@@ -3,8 +3,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const moment = require('moment-timezone');
-
 const settings = require('./settings.json');
 
 client.commands = new Map();
@@ -15,20 +13,6 @@ client.guildlist = new Map();
 require('./utils/commandLoader')(client);
 require('./utils/guildLoader')(client);
 require('./utils/eventLoader')(client);
-
-/**
- * @param {string} type
- * @param {string} log
- */
-client.sendLog = (type, log) => {
-
-    const channelId = client.guildlist.get('bot_manager').channels.get(type).id;
-    client.channels.fetch(channelId)
-    .then(channel => {
-        channel.send(`\`[${moment().tz("Europe/Paris").format('HH:mm:ss')}]\` | ${log}`);
-    });
-
-}
 
 /**
  * @param {Message} message

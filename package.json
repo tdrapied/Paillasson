@@ -1,13 +1,12 @@
 {
   "name": "paillasson",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "author": "AH_REM",
   "dependencies": {
-    "discord.js": "^12.1.1",
-    "moment-timezone": "^0.5.28"
+    "discord.js": "^12.1.1"
   }
 }
